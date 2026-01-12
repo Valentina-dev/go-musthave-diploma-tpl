@@ -1,6 +1,10 @@
 package server
 
-import "testing"
+import (
+	"testing"
+
+	"gophermart/internal/service"
+)
 
 func TestIsValidOrderNumber(t *testing.T) {
 	tests := []struct {
@@ -47,9 +51,9 @@ func TestIsValidOrderNumber(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			got := isValidOrderNumber(tt.number)
+			got := service.IsValidOrderNumber(tt.number)
 			if got != tt.want {
-				t.Errorf("isValidOrderNumber() = %v, want %v", got, tt.want)
+				t.Errorf("IsValidOrderNumber() = %v, want %v", got, tt.want)
 			}
 		})
 	}
